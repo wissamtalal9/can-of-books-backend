@@ -21,7 +21,7 @@ let seedAuthor=()=>{
         title:'To Kill a Mockingbird',
     description:'Published in 1960, this timeless classic explores human behaviour and the collective conscience of The Deep South in the early 20th century.',
     status:'Available',
-    email:'sanaishaqat@gmail.com'
+        email: 'wissam@gmail.com'
     },{
         title:'Pride and Prejudice',
     description:'One of the most famous novels of all time, Pride And Prejudice details the courtship of two opposed characters in a world where manners and courtesy are of the utmost importance.',
