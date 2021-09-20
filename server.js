@@ -1,25 +1,40 @@
-'use strict';
-
-require('dotenv').config();
-const express = require('express');
-const cors = require('cors');
+'use strict'
+const axios = require("axios");
+const express = require("express");
 const app = express();
-const mongoose = require("mongoose");
+const cors = require("cors");
 app.use(cors());
-const PORT = process.env.PORT;
-const MONGO_SERVER = process.env.MONGO_SERVER;
-const seedAuthor = require("./models/Author.model");
-const authorController = require('./controllers/author.controller');
-// const getAuthorController=require('./controllers/author.controller');
-mongoose.connect(`${MONGO_SERVER}/Books`, { useNewUrlParser: true, useUnifiedTopology: true });
+require("dotenv").config();
+const mongoose = require('mongoose')
+const PORT = process.env.PORT
+const MONGO_SERVER = process.env.MONGO_SERVER
+const {booksController,getbooksController} =require("./contrellor/book.contrellor")
 
-app.get('/seed-data', (request, response) => {
-    seedAuthor();
 
-    response.json({ "Message": "Author Obj Created Successfully" })
+const {seedbook} = require("./models/Book.model")
+// const {seedAuthor} = require("./models/author.model")
+// const {authorcontroller ,getauthorcontroller} = require("./contrellor/author.contrellor")
 
+
+app.get('/seed_data',(req,res)=>{
+    seedbook()
+    res.json('correct message')
 })
-app.get('/get-data', authorController);
-// app.get('/get-author', getAuthorController);
 
-app.listen(PORT, () => console.log(`listening on ${PORT}`));
+// app.get('/get_data',authorcontroller)
+// app.get('/get_data2',getauthorcontroller)
+app.get("/", (req, res) => {
+    res.status(200).json({ message: "I'm working" });
+  });
+
+mongoose.connect(`mongodb+srv://Corn:<password>@cluster0.xq7br.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,{useNewUrlParser: true, useUnifiedTopology: true});
+// mongoose.connect(`${MONGO_SERVER}/bookstore`,{useNewUrlParser: true, useUnifiedTopology: true});
+
+app.get('/books',booksController);
+app.get('/books2',getbooksController);
+
+
+app.listen(PORT, () => {
+    console.log(`listening to port ${PORT}`);
+  });
+  

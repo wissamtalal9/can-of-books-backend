@@ -7,9 +7,17 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wissamtalal9/can-of-books-backend.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wissamtalal9/can-of-books-backend/issues"
+  },
+  "homepage": "https://github.com/wissamtalal9/can-of-books-backend#readme",
   "dependencies": {
     "axios": "^0.21.4",
     "cors": "^2.8.5",
